@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://sp8888.net/webservice" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://sp8888.net/webservice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://sp8888.net/webservice">
+      <s:element name="CheckScheduleExists">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="schedule" type="tns:Schedule" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Schedule">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GameType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderBy" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AllianceID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FullGameTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Number" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GameStates" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TeamAID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TeamBID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ControlStates" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrackerText" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="WebID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsReschedule" nillable="true" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckScheduleExistsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckScheduleExistsResult" type="tns:ExecuteResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExecuteResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ResultType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddScheduleBatch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="scheduleList" type="tns:ArrayOfSchedule" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSchedule">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Schedule" nillable="true" type="tns:Schedule" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddScheduleBatchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddScheduleBatchResult" type="tns:ExecuteDataChangeResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExecuteDataChangeResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ExecuteResult">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ChangeCount" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="AddSchedule">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="schedule" type="tns:Schedule" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddScheduleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddScheduleResult" type="tns:ExecuteResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckScheduleExistsSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckScheduleExists" />
+  </wsdl:message>
+  <wsdl:message name="CheckScheduleExistsSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckScheduleExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddScheduleBatchSoapIn">
+    <wsdl:part name="parameters" element="tns:AddScheduleBatch" />
+  </wsdl:message>
+  <wsdl:message name="AddScheduleBatchSoapOut">
+    <wsdl:part name="parameters" element="tns:AddScheduleBatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddScheduleSoapIn">
+    <wsdl:part name="parameters" element="tns:AddSchedule" />
+  </wsdl:message>
+  <wsdl:message name="AddScheduleSoapOut">
+    <wsdl:part name="parameters" element="tns:AddScheduleResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ScheduleServiceSoap">
+    <wsdl:operation name="CheckScheduleExists">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">檢查賽程是否存在</wsdl:documentation>
+      <wsdl:input message="tns:CheckScheduleExistsSoapIn" />
+      <wsdl:output message="tns:CheckScheduleExistsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddScheduleBatch">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">新增賽程 (批次)</wsdl:documentation>
+      <wsdl:input message="tns:AddScheduleBatchSoapIn" />
+      <wsdl:output message="tns:AddScheduleBatchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSchedule">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">新增賽程</wsdl:documentation>
+      <wsdl:input message="tns:AddScheduleSoapIn" />
+      <wsdl:output message="tns:AddScheduleSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ScheduleServiceHttpGet" />
+  <wsdl:portType name="ScheduleServiceHttpPost" />
+  <wsdl:binding name="ScheduleServiceSoap" type="tns:ScheduleServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckScheduleExists">
+      <soap:operation soapAction="http://sp8888.net/webservice/CheckScheduleExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddScheduleBatch">
+      <soap:operation soapAction="http://sp8888.net/webservice/AddScheduleBatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSchedule">
+      <soap:operation soapAction="http://sp8888.net/webservice/AddSchedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ScheduleServiceSoap12" type="tns:ScheduleServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckScheduleExists">
+      <soap12:operation soapAction="http://sp8888.net/webservice/CheckScheduleExists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddScheduleBatch">
+      <soap12:operation soapAction="http://sp8888.net/webservice/AddScheduleBatch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSchedule">
+      <soap12:operation soapAction="http://sp8888.net/webservice/AddSchedule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ScheduleServiceHttpGet" type="tns:ScheduleServiceHttpGet">
+    <http:binding verb="GET" />
+  </wsdl:binding>
+  <wsdl:binding name="ScheduleServiceHttpPost" type="tns:ScheduleServiceHttpPost">
+    <http:binding verb="POST" />
+  </wsdl:binding>
+  <wsdl:service name="ScheduleService">
+    <wsdl:port name="ScheduleServiceSoap" binding="tns:ScheduleServiceSoap">
+      <soap:address location="http://localhost:51619/ScheduleService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ScheduleServiceSoap12" binding="tns:ScheduleServiceSoap12">
+      <soap12:address location="http://localhost:51619/ScheduleService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ScheduleServiceHttpGet" binding="tns:ScheduleServiceHttpGet">
+      <http:address location="http://localhost:51619/ScheduleService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ScheduleServiceHttpPost" binding="tns:ScheduleServiceHttpPost">
+      <http:address location="http://localhost:51619/ScheduleService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

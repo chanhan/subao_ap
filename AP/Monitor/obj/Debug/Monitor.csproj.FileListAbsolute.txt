@@ -1,0 +1,13 @@
+D:\tfs_code\TFSmain_SP_TFS_CODE\AP\Monitor\bin\Debug\Monitor.exe.config
+D:\tfs_code\TFSmain_SP_TFS_CODE\AP\Monitor\bin\Debug\Monitor.xml
+D:\tfs_code\TFSmain_SP_TFS_CODE\AP\Monitor\bin\Debug\Monitor.exe
+D:\tfs_code\TFSmain_SP_TFS_CODE\AP\Monitor\bin\Debug\Monitor.pdb
+D:\tfs_code\TFSmain_SP_TFS_CODE\AP\Monitor\bin\Debug\NLog.dll
+D:\tfs_code\TFSmain_SP_TFS_CODE\AP\Monitor\bin\Debug\SHGG.dll
+D:\tfs_code\TFSmain_SP_TFS_CODE\AP\Monitor\bin\Debug\NLog.xml
+D:\tfs_code\TFSmain_SP_TFS_CODE\AP\Monitor\obj\Debug\Monitor.csprojResolveAssemblyReference.cache
+D:\tfs_code\TFSmain_SP_TFS_CODE\AP\Monitor\obj\Debug\Monitor.frmMain.resources
+D:\tfs_code\TFSmain_SP_TFS_CODE\AP\Monitor\obj\Debug\Monitor.Properties.Resources.resources
+D:\tfs_code\TFSmain_SP_TFS_CODE\AP\Monitor\obj\Debug\Monitor.csproj.GenerateResource.Cache
+D:\tfs_code\TFSmain_SP_TFS_CODE\AP\Monitor\obj\Debug\Monitor.exe
+D:\tfs_code\TFSmain_SP_TFS_CODE\AP\Monitor\obj\Debug\Monitor.pdb

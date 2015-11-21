@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Schedules.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Schedules_ScheduleWS_ScheduleService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://50.23.112.170:8899/ScheduleService.asmx</Value>
+    </Setting>
+    <Setting Name="Schedules_TeamWS_TeamService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://50.23.112.170:8899/TeamService.asmx</Value>
+    </Setting>
+    <Setting Name="Schedules_CommonWS_CommonService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://50.23.112.170:8899/CommonService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

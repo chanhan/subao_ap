@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://sp8888.net/webservice" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://sp8888.net/webservice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://sp8888.net/webservice">
+      <s:element name="GetValueFromSetTypeVal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetValueFromSetTypeValResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetValueFromSetTypeValResult" type="tns:ExecuteResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExecuteResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ResultType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetGameSourceBySourceID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sourceID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGameSourceBySourceIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGameSourceBySourceIDResult" type="tns:ExecuteDataResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExecuteDataResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ExecuteResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ResultDs">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element ref="s:schema" />
+                    <s:any />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="LoginCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginCheckResult" type="tns:ExecuteResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteResult" nillable="true" type="tns:ExecuteResult" />
+      <s:element name="ExecuteDataResult" nillable="true" type="tns:ExecuteDataResult" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetValueFromSetTypeValSoapIn">
+    <wsdl:part name="parameters" element="tns:GetValueFromSetTypeVal" />
+  </wsdl:message>
+  <wsdl:message name="GetValueFromSetTypeValSoapOut">
+    <wsdl:part name="parameters" element="tns:GetValueFromSetTypeValResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGameSourceBySourceIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGameSourceBySourceID" />
+  </wsdl:message>
+  <wsdl:message name="GetGameSourceBySourceIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGameSourceBySourceIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginCheck" />
+  </wsdl:message>
+  <wsdl:message name="LoginCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetValueFromSetTypeValHttpGetIn">
+    <wsdl:part name="key" type="s:string" />
+    <wsdl:part name="type" type="s:string" />
+    <wsdl:part name="language" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetValueFromSetTypeValHttpGetOut">
+    <wsdl:part name="Body" element="tns:ExecuteResult" />
+  </wsdl:message>
+  <wsdl:message name="GetGameSourceBySourceIDHttpGetIn">
+    <wsdl:part name="key" type="s:string" />
+    <wsdl:part name="sourceID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetGameSourceBySourceIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:ExecuteDataResult" />
+  </wsdl:message>
+  <wsdl:message name="LoginCheckHttpGetIn">
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginCheckHttpGetOut">
+    <wsdl:part name="Body" element="tns:ExecuteResult" />
+  </wsdl:message>
+  <wsdl:message name="GetValueFromSetTypeValHttpPostIn">
+    <wsdl:part name="key" type="s:string" />
+    <wsdl:part name="type" type="s:string" />
+    <wsdl:part name="language" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetValueFromSetTypeValHttpPostOut">
+    <wsdl:part name="Body" element="tns:ExecuteResult" />
+  </wsdl:message>
+  <wsdl:message name="GetGameSourceBySourceIDHttpPostIn">
+    <wsdl:part name="key" type="s:string" />
+    <wsdl:part name="sourceID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetGameSourceBySourceIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:ExecuteDataResult" />
+  </wsdl:message>
+  <wsdl:message name="LoginCheckHttpPostIn">
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LoginCheckHttpPostOut">
+    <wsdl:part name="Body" element="tns:ExecuteResult" />
+  </wsdl:message>
+  <wsdl:portType name="CommonServiceSoap">
+    <wsdl:operation name="GetValueFromSetTypeVal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取得 SetTypeVal 的值</wsdl:documentation>
+      <wsdl:input message="tns:GetValueFromSetTypeValSoapIn" />
+      <wsdl:output message="tns:GetValueFromSetTypeValSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGameSourceBySourceID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取得賽事來源資料 (依賽事編號)</wsdl:documentation>
+      <wsdl:input message="tns:GetGameSourceBySourceIDSoapIn" />
+      <wsdl:output message="tns:GetGameSourceBySourceIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginCheck">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">登入驗證</wsdl:documentation>
+      <wsdl:input message="tns:LoginCheckSoapIn" />
+      <wsdl:output message="tns:LoginCheckSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CommonServiceHttpGet">
+    <wsdl:operation name="GetValueFromSetTypeVal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取得 SetTypeVal 的值</wsdl:documentation>
+      <wsdl:input message="tns:GetValueFromSetTypeValHttpGetIn" />
+      <wsdl:output message="tns:GetValueFromSetTypeValHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGameSourceBySourceID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取得賽事來源資料 (依賽事編號)</wsdl:documentation>
+      <wsdl:input message="tns:GetGameSourceBySourceIDHttpGetIn" />
+      <wsdl:output message="tns:GetGameSourceBySourceIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginCheck">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">登入驗證</wsdl:documentation>
+      <wsdl:input message="tns:LoginCheckHttpGetIn" />
+      <wsdl:output message="tns:LoginCheckHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CommonServiceHttpPost">
+    <wsdl:operation name="GetValueFromSetTypeVal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取得 SetTypeVal 的值</wsdl:documentation>
+      <wsdl:input message="tns:GetValueFromSetTypeValHttpPostIn" />
+      <wsdl:output message="tns:GetValueFromSetTypeValHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGameSourceBySourceID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取得賽事來源資料 (依賽事編號)</wsdl:documentation>
+      <wsdl:input message="tns:GetGameSourceBySourceIDHttpPostIn" />
+      <wsdl:output message="tns:GetGameSourceBySourceIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginCheck">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">登入驗證</wsdl:documentation>
+      <wsdl:input message="tns:LoginCheckHttpPostIn" />
+      <wsdl:output message="tns:LoginCheckHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CommonServiceSoap" type="tns:CommonServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetValueFromSetTypeVal">
+      <soap:operation soapAction="http://sp8888.net/webservice/GetValueFromSetTypeVal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameSourceBySourceID">
+      <soap:operation soapAction="http://sp8888.net/webservice/GetGameSourceBySourceID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginCheck">
+      <soap:operation soapAction="http://sp8888.net/webservice/LoginCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CommonServiceSoap12" type="tns:CommonServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetValueFromSetTypeVal">
+      <soap12:operation soapAction="http://sp8888.net/webservice/GetValueFromSetTypeVal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameSourceBySourceID">
+      <soap12:operation soapAction="http://sp8888.net/webservice/GetGameSourceBySourceID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginCheck">
+      <soap12:operation soapAction="http://sp8888.net/webservice/LoginCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CommonServiceHttpGet" type="tns:CommonServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetValueFromSetTypeVal">
+      <http:operation location="/GetValueFromSetTypeVal" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameSourceBySourceID">
+      <http:operation location="/GetGameSourceBySourceID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginCheck">
+      <http:operation location="/LoginCheck" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CommonServiceHttpPost" type="tns:CommonServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetValueFromSetTypeVal">
+      <http:operation location="/GetValueFromSetTypeVal" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGameSourceBySourceID">
+      <http:operation location="/GetGameSourceBySourceID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginCheck">
+      <http:operation location="/LoginCheck" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CommonService">
+    <wsdl:port name="CommonServiceSoap" binding="tns:CommonServiceSoap">
+      <soap:address location="http://50.23.112.170:8899/CommonService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CommonServiceSoap12" binding="tns:CommonServiceSoap12">
+      <soap12:address location="http://50.23.112.170:8899/CommonService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CommonServiceHttpGet" binding="tns:CommonServiceHttpGet">
+      <http:address location="http://50.23.112.170:8899/CommonService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CommonServiceHttpPost" binding="tns:CommonServiceHttpPost">
+      <http:address location="http://50.23.112.170:8899/CommonService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

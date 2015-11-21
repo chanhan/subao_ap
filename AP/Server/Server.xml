@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XML>
+  <Server>
+    <Ip>127.0.0.1</Ip>
+    <Port>7878</Port>
+  </Server>
+
+  <Processes>
+    <Process>
+      <Name>(Football)</Name>
+      <Path>D:\GanguTech\SP8888_Application\SP8888_Application-開發版 1.0.0\Server\bin\Release\Follow.exe</Path>
+      <Command>follow football</Command>
+      <Description>足球</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(NFL)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow nfl</Command>
+      <Description>足球 國家美式足球聯盟</Description>
+      <Default>false</Default>
+    </Process>
+    <!--<Process>
+      <Name>(CPBL)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow cpbl</Command>
+      <Description>棒球 中華職棒</Description>
+    </Process>-->
+    <Process>
+      <Name>(NPB-YAHOO)</Name>
+      <Path>D:\GanguTech\SP8888_Application\SP8888_Application-開發版 1.0.0\Server\bin\Release\Follow.exe</Path>
+      <Command>follow npb</Command>
+      <Description>棒球 日本職棒</Description>
+      <Default>true</Default>
+    </Process>
+    <Process>
+      <Name>(KBO)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow kbo</Command>
+      <Description>棒球 韓國職棒</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(MLB-CBS)</Name>
+      <Path>D:\GanguTech\SP8888_Application\SP8888_Application-開發版 1.0.0\Server\bin\Release\Follow.exe</Path>
+      <Command>follow mlb</Command>
+      <Description>棒球 美國職棒(CBS)</Description>
+      <Default>true</Default>
+    </Process>
+    <Process>
+      <Name>(MLB-ESPN)</Name>
+      <Path>D:\GanguTech\SP8888_Application\SP8888_Application-開發版 1.0.0\Server\bin\Release\Follow.exe</Path>
+      <Command>follow mlb2</Command>
+      <Description>棒球 美國職棒(ESPN)</Description>
+      <Default>false</Default>
+    </Process>    
+    <Process>
+      <Name>(IL)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow il</Command>
+      <Description>棒球 美國職棒 3A 國際聯盟</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(PCL)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow pcl</Command>
+      <Description>棒球 美國職棒 3A 太平洋岸聯盟</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(LMP)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow lmp</Command>
+      <Description>棒球 墨西哥冬季聯盟</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(LMB)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow lmb</Command>
+      <Description>棒球 墨西哥夏季聯盟</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(CBA)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow cba</Command>
+      <Description>籃球 中國職籃</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(BJ)</Name>
+      <Path>D:\GanguTech\SP8888_Application\SP8888_Application-開發版 1.0.0\Server\bin\Release\Follow.exe</Path>
+      <Command>follow bj</Command>
+      <Description>籃球 日本職籃</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(KBL)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow kbl</Command>
+      <Description>籃球 韓國職籃 - 男子</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(WKBL)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow wkbl</Command>
+      <Description>籃球 韓國職籃 - 女子</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(NBA)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow nba</Command>
+      <Description>籃球 美國職籃</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(WNBA)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow wnba</Command>
+      <Description>籃球 美國女子職籃</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(Euroleague)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow euroleague</Command>
+      <Description>籃球 歐洲職籃</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(Eurocup)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow eurocup</Command>
+      <Description>籃球 歐洲籃球聯盟盃</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(VTB)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow vtb</Command>
+      <Description>籃球 籃球聯賽</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(NBL)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow nbl</Command>
+      <Description>籃球 澳洲職籃</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(FIBA)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow fiba</Command>
+      <Description>籃球 亞洲籃球錦標賽</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(EBT)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow ebt</Command>
+      <Description>籃球 歐洲籃球錦標賽</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(ACB)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow acb</Command>
+      <Description>籃球 西班牙籃球</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(BBL)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow bbl</Command>
+      <Description>籃球 德國籃球甲級聯賽</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(NCAA)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow ncaa</Command>
+      <Description>美國大學男子籃球</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(CNBL)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow cnbl</Command>
+      <Description>中國男子籃球甲級聯賽</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(Tennis)</Name>
+      <Path>D:\GanguTech\SP8888_Application\SP8888_Application-開發版 1.0.0\Server\bin\Release\Follow.exe</Path>
+      <Command>follow tennis</Command>
+      <Description>網球</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(NHL)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow nhl</Command>
+      <Description>曲棍球 國家冰球</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(AHL)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow ahl</Command>
+      <Description>曲棍球 美國冰球</Description>
+      <Default>false</Default>
+    </Process>
+    <Process>
+      <Name>(KHL)</Name>
+      <Path>Follow.exe</Path>
+      <Command>follow khl</Command>
+      <Description>曲棍球 俄羅斯冰球</Description>
+      <Default>false</Default>
+    </Process>
+  </Processes>
+</XML>

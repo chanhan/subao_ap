@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<XML>
+  <!--<Database>
+      <SqlServer>119.81.0.147</SqlServer>
+      <DB>SportInfoV5</DB>
+      <UID>sport888</UID>
+      <PWD>SP@1127^1125</PWD>
+  </Database>-->
+  <Database>
+    <SqlServer>50.23.112.170</SqlServer>
+    <DB>SportInfoV5</DB>
+    <UID>sport888</UID>
+    <PWD>123123</PWD>
+  </Database>
+    <Server>
+        <Ip>172.19.8.12</Ip>
+        <Port>7878</Port>
+    </Server>
+</XML>

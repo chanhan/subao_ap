@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://sp8888.net/webservice" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://sp8888.net/webservice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://sp8888.net/webservice">
+      <s:element name="CheckTeamExists">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="team" type="tns:Team" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Team">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GameType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TeamName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShowName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AllianceID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WebName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="W" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="L" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="T" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="SourceID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckTeamExistsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckTeamExistsResult" type="tns:ExecuteResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExecuteResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ResultType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddTeamBatch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="teamList" type="tns:ArrayOfTeam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTeam">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Team" nillable="true" type="tns:Team" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddTeamBatchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddTeamBatchResult" type="tns:ExecuteDataChangeResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExecuteDataChangeResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ExecuteResult">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ChangeCount" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="AddTeam">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="team" type="tns:Team" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddTeamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddTeamResult" type="tns:ExecuteResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTeamByUnionAll">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTeamByUnionAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTeamByUnionAllResult" type="tns:ExecuteDataResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExecuteDataResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ExecuteResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ResultDs">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element ref="s:schema" />
+                    <s:any />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ExecuteDataResult" nillable="true" type="tns:ExecuteDataResult" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckTeamExistsSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckTeamExists" />
+  </wsdl:message>
+  <wsdl:message name="CheckTeamExistsSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckTeamExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddTeamBatchSoapIn">
+    <wsdl:part name="parameters" element="tns:AddTeamBatch" />
+  </wsdl:message>
+  <wsdl:message name="AddTeamBatchSoapOut">
+    <wsdl:part name="parameters" element="tns:AddTeamBatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddTeamSoapIn">
+    <wsdl:part name="parameters" element="tns:AddTeam" />
+  </wsdl:message>
+  <wsdl:message name="AddTeamSoapOut">
+    <wsdl:part name="parameters" element="tns:AddTeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamByUnionAllSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTeamByUnionAll" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamByUnionAllSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTeamByUnionAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamByUnionAllHttpGetIn">
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamByUnionAllHttpGetOut">
+    <wsdl:part name="Body" element="tns:ExecuteDataResult" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamByUnionAllHttpPostIn">
+    <wsdl:part name="key" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamByUnionAllHttpPostOut">
+    <wsdl:part name="Body" element="tns:ExecuteDataResult" />
+  </wsdl:message>
+  <wsdl:portType name="TeamServiceSoap">
+    <wsdl:operation name="CheckTeamExists">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">檢查隊伍是否存在</wsdl:documentation>
+      <wsdl:input message="tns:CheckTeamExistsSoapIn" />
+      <wsdl:output message="tns:CheckTeamExistsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTeamBatch">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">新增隊伍 (批次)</wsdl:documentation>
+      <wsdl:input message="tns:AddTeamBatchSoapIn" />
+      <wsdl:output message="tns:AddTeamBatchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTeam">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">新增隊伍</wsdl:documentation>
+      <wsdl:input message="tns:AddTeamSoapIn" />
+      <wsdl:output message="tns:AddTeamSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamByUnionAll">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取得所有隊伍資料(不區分賽事種類)</wsdl:documentation>
+      <wsdl:input message="tns:GetTeamByUnionAllSoapIn" />
+      <wsdl:output message="tns:GetTeamByUnionAllSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TeamServiceHttpGet">
+    <wsdl:operation name="GetTeamByUnionAll">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取得所有隊伍資料(不區分賽事種類)</wsdl:documentation>
+      <wsdl:input message="tns:GetTeamByUnionAllHttpGetIn" />
+      <wsdl:output message="tns:GetTeamByUnionAllHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TeamServiceHttpPost">
+    <wsdl:operation name="GetTeamByUnionAll">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">取得所有隊伍資料(不區分賽事種類)</wsdl:documentation>
+      <wsdl:input message="tns:GetTeamByUnionAllHttpPostIn" />
+      <wsdl:output message="tns:GetTeamByUnionAllHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TeamServiceSoap" type="tns:TeamServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckTeamExists">
+      <soap:operation soapAction="http://sp8888.net/webservice/CheckTeamExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTeamBatch">
+      <soap:operation soapAction="http://sp8888.net/webservice/AddTeamBatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTeam">
+      <soap:operation soapAction="http://sp8888.net/webservice/AddTeam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamByUnionAll">
+      <soap:operation soapAction="http://sp8888.net/webservice/GetTeamByUnionAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TeamServiceSoap12" type="tns:TeamServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckTeamExists">
+      <soap12:operation soapAction="http://sp8888.net/webservice/CheckTeamExists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTeamBatch">
+      <soap12:operation soapAction="http://sp8888.net/webservice/AddTeamBatch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTeam">
+      <soap12:operation soapAction="http://sp8888.net/webservice/AddTeam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamByUnionAll">
+      <soap12:operation soapAction="http://sp8888.net/webservice/GetTeamByUnionAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TeamServiceHttpGet" type="tns:TeamServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetTeamByUnionAll">
+      <http:operation location="/GetTeamByUnionAll" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TeamServiceHttpPost" type="tns:TeamServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetTeamByUnionAll">
+      <http:operation location="/GetTeamByUnionAll" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TeamService">
+    <wsdl:port name="TeamServiceSoap" binding="tns:TeamServiceSoap">
+      <soap:address location="http://localhost:51619/TeamService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TeamServiceSoap12" binding="tns:TeamServiceSoap12">
+      <soap12:address location="http://localhost:51619/TeamService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TeamServiceHttpGet" binding="tns:TeamServiceHttpGet">
+      <http:address location="http://localhost:51619/TeamService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TeamServiceHttpPost" binding="tns:TeamServiceHttpPost">
+      <http:address location="http://localhost:51619/TeamService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
